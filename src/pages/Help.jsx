@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Clock, Battery, Wifi, Navigation, CheckCircle, AlertTriangle, Search, Plus } from 'lucide-react';
+import { MapPin, Clock, Battery, Wifi, Navigation, CheckCircle, AlertTriangle, Search, Plus, Settings, Zap, Globe, Activity } from 'lucide-react';
 
 const Help = () => {
   return (
@@ -23,7 +23,7 @@ const Help = () => {
             <h3 className="font-bold text-lg mb-2 text-blue-700">Key Features</h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Real-time delivery task tracking</li>
-              <li>Automatic ETA calculation(Just and basic one)</li>
+              <li>Automatic ETA calculation (Just and basic one)</li>
               <li>Smart task prioritization by distance and ETA</li>
               <li>Battery & network-aware performance modes</li>
               <li>Offline capability with cached data</li>
@@ -35,10 +35,163 @@ const Help = () => {
               <li>React.js with Vite</li>
               <li>Browser Geolocation API</li>
               <li>Network Information API</li>
-              <li>Background Tasks API(just used same flow)</li>
-              <li>Battery Status API(Extra added for fronted)</li>
-              <li>OpenStreetMap Nominatim for geocoding(extra)</li>
+              <li>Background Tasks API (just used same flow)</li>
+              <li>Battery Status API (Extra added for frontend)</li>
+              <li>OpenStreetMap Nominatim for geocoding (extra)</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800 border-b pb-2">
+          <Zap className="inline mr-2" />
+          Core Functionality & API Integration
+        </h2>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse border border-gray-300 rounded-lg">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="border border-gray-300 p-3 text-left font-semibold">Function</th>
+                <th className="border border-gray-300 p-3 text-left font-semibold">Description</th>
+                <th className="border border-gray-300 p-3 text-left font-semibold">API(s) Used</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <MapPin className="w-4 h-4 mr-2 text-blue-500" />
+                    <span className="font-medium">Real-time location tracking</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">Tracks the delivery agent's current location</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Geolocation API</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <Navigation className="w-4 h-4 mr-2 text-green-500" />
+                    <span className="font-medium">Continuous route updates</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">ETA and optimal next task dynamically re-evaluated</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm mr-1">Geolocation API</span>
+                  <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Background Tasks</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <Activity className="w-4 h-4 mr-2 text-orange-500" />
+                    <span className="font-medium">Delivery task queue in background</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">Background Task holds and processes delivery list (offline-capable)</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Background Tasks API</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <Clock className="w-4 h-4 mr-2 text-red-500" />
+                    <span className="font-medium">Dynamic ETA updates</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">Based on real-time location and new traffic data (if online)</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm mr-1">Geolocation</span>
+                  <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Network Info</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <Wifi className="w-4 h-4 mr-2 text-gray-500" />
+                    <span className="font-medium">Fallback to cached ETAs</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">Uses cached data when offline and refreshes when back online</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Network Info API</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <Settings className="w-4 h-4 mr-2 text-indigo-500" />
+                    <span className="font-medium">Next best delivery decisioning</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">System automatically picks next delivery location based on distance and ETA</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm">Custom logic + Geolocation + Background Tasks</span>
+                </td>
+              </tr>
+              <tr className="hover:bg-gray-50">
+                <td className="border border-gray-300 p-3">
+                  <div className="flex items-center">
+                    <Battery className="w-4 h-4 mr-2 text-green-600" />
+                    <span className="font-medium">Battery/Data optimization</span>
+                  </div>
+                </td>
+                <td className="border border-gray-300 p-3">Can throttle updates when battery is low or network is weak</td>
+                <td className="border border-gray-300 p-3">
+                  <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm mr-1">Network Info API</span>
+                  <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Battery APIs</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800 border-b pb-2">
+          <Globe className="inline mr-2" />
+          API Status & Integration Details
+        </h2>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+            <h3 className="font-bold text-lg mb-3 text-green-700">Primary APIs</h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Geolocation API</span>
+                <span className="bg-green-500 text-white px-2 py-1 rounded text-xs">Active</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Background Tasks API</span>
+                <span className="bg-green-500 text-white px-2 py-1 rounded text-xs">Active</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Network Information API</span>
+                <span className="bg-green-500 text-white px-2 py-1 rounded text-xs">Active</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+            <h3 className="font-bold text-lg mb-3 text-blue-700">Enhancement APIs</h3>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Battery Status API</span>
+                <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs">Frontend Only</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">OpenStreetMap Nominatim</span>
+                <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs">External</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">Device APIs</span>
+                <span className="bg-yellow-500 text-white px-2 py-1 rounded text-xs">Optional</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -218,8 +371,17 @@ const Help = () => {
             <h3 className="font-medium">Battery draining fast?</h3>
             <p className="text-sm text-gray-600">Switch to Battery Saver mode in low power situations.</p>
           </div>
+          <div>
+            <h3 className="font-medium">Background tasks not working?</h3>
+            <p className="text-sm text-gray-600">Ensure the browser tab remains active or enable background sync permissions.</p>
+          </div>
+          <div>
+            <h3 className="font-medium">ETA calculations seem off?</h3>
+            <p className="text-sm text-gray-600">ETAs are basic calculations. Real traffic data integration is planned for future updates.</p>
+          </div>
         </div>
       </section>
+      
       <div className="text-center text-sm text-gray-500 mt-10">
         Made with ❤️ by <span className="text-blue-600 font-medium">Tushar Solanki</span> •{' '}
         <a
